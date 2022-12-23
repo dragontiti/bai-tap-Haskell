@@ -35,6 +35,7 @@ f4 x y z = x == (y ++ z)
 
 -- Question 4
 -- Are there any functions in Haskell that let you transform one type to the other? Try googling for the answer.
+round, ceiling, floor
 
 GHCi > show 6
 "6"
@@ -49,6 +50,7 @@ printDouble value = show (value * 2)
 -- Question 5
 -- Can you also define in Haskell list of lists? Did we showed any example of that? How would you access the inner most elements?
 
+l :: [[Int]]
 l = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
 l !! 0 !! 0

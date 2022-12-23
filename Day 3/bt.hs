@@ -4,6 +4,9 @@
 -- The function has to take the hourly consumption of an electrical device, the hours of daily use, and the maximum monthly consumption allowed.
 -- (Monthly usage = consumption (kW) * hours of daily use (h) * 30 days).
 
+check m k h =
+  let monthlyusage k h = k * h * 30
+  in if monthlyusage k h > m then "Over" else "OK"
 
 -- Question 2
 -- Prelude:
@@ -12,19 +15,44 @@
 
 -- In the previous function, return the excess/savings of consumption as part of the message.
 
+m = 100
+check :: Double -> Double -> String
+check k h =
+  let monthlyusage k h = k * h * 30
+  in if monthlyusage k h > m then "Over " ++ show ((monthlyusage k h) - m) else "Less than " ++ show (m - (monthlyusage k h))
 
 -- Question 3
 -- Write a function that showcases the advantages of using let expressions to split a big expression into smaller ones.
 -- Then, share it with other students in Canvas.
 
+tinh a b c d e f =
+  let x = a*b
+      y = c+d
+      z = e/f
+  in x + y + z
 
 -- Question 4
 -- Write a function that takes in two numbers and returns their quotient such that it is not greater than 1.
 -- Return the number as a string, and in case the divisor is 0, return a message why the division is not
 -- possible. To implement this function using both guards and if-then-else statements.  
 
+chia :: Double -> Double -> String
+chia x y =
+  if y == 0
+    then "Khong the chia cho 0"
+    else show (x/y)
 
 -- Question 5
 -- Write a function that takes in two numbers and calculates the sum of squares for the product and quotient
 -- of those numbers. Write the function such that you use a where block inside a let expression and a
 -- let expression inside a where block.
+
+tong x y =
+  let a = x * y
+      b = x / y
+  in a^2 + b^2
+      
+tong2 x y = a^2 + b^2
+  where
+    a = x * y
+    b = x / y
